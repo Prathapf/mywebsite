@@ -1,0 +1,464 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>youtubeClone</title>
+        <link rel="stylesheet" href="./video.css">
+        <link rel="stylesheet" href="./general.css">
+        <style>
+            .header{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                height: 55px;
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                background-color: white;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                border-bottom-color: grey ;
+            }
+            .left-section{
+                display: flex;
+                align-items: center;
+            }
+            .hamburger-menu{
+                height: 23px;
+                margin-left: 20px;
+            }
+            .youtube-logo{
+                height: 25px;
+                margin-left: 20px;
+            }
+            .Middle-section{
+                flex: 1;
+                max-width: 500px;
+                margin-right:40px;
+                margin-left: 10px;
+                display: flex;
+                align-items: center;
+            }
+            .search-bar{
+                flex: 1;
+                height: 35px;
+                font-size: 17px;
+                padding-left: 15px;
+                border-width: 1px;
+                border-style: solid;
+                border-color: grey;
+                border-radius: 2px;
+                box-shadow: inset 1px 2px 4px rgba(0, 0,0,0.15);
+            }
+            .search-logo::placeholder{
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            .search-logo{
+                width: 60px;
+                height: 39px;
+                margin-left:-1px;
+                border-width: 1px;
+                border-style: solid;
+                border-color: rgb(88, 86, 86);
+                position: relative;
+                cursor: pointer;
+                   
+            }
+            .search-logo .tooltip{
+                position: absolute;
+                background-color: grey;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                padding-left: 9px;
+                padding-right: 9px;
+                border-radius: 2px;
+                bottom: -30px;
+                right: 1px;
+                left: 2px;
+                opacity: 0;
+                transition: opacity 0.15s;
+            }
+            .search-logo:hover .tooltip{
+                opacity: 1;
+            }
+            .voice-logo .voice-tooltip{
+                position: absolute;
+                background-color: grey;
+                padding-top: 4px;
+                padding-bottom: 4px;
+                padding-left: 8px;
+                padding-right: 9px;
+                border-radius: 2px;
+                bottom: -22px;
+                opacity: 0;
+                transition: opacity 0.15s;
+            }
+            .voice-logo:hover .voice-tooltip{
+                opacity: 1;
+            }
+            .search-icon{
+                height: 25px;
+                margin-top: 5px;
+            }
+            .voice-logo{
+                width: 40px;
+                height: 38px;
+                margin-left: 8px;
+                border-radius: 50%;
+                border: none;;
+            }
+            .right-section{
+                width: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-right:20px;
+                flex-shrink: 0;
+            }
+            .upload-logo{
+                height: 37px;
+                width: 40px;
+            }
+            .youtube-app{
+                height: 37px;
+                width: 40px;
+            }
+            .notification-logo{
+                height: 37px;
+                width: 40px;
+            }
+            .channel-logo{
+                height: 37px;
+                width: 40px;
+                border-radius: 50px;
+            }
+            .notification-info-container{
+                position: relative;
+            }
+            .notification-count{
+                background-color: red;
+                position: absolute;
+                width: 15px;
+                text-align: center;
+                border-radius: 50px;
+                top: 5px;
+                right: 2px;
+            }
+            .side-bar{
+                position: fixed;
+                top: 0;
+                width: 75px;
+                top: 55px;
+                z-index: 200;
+                background-color: white;
+            }
+            .side-link{
+                height: 75px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                cursor: pointer;
+            }
+            .side-link:hover{
+            background-color: rgb(216, 215, 215);
+            }
+            .side-link img{
+                height: 30px;
+                margin-bottom: 10px;
+            }
+            .side-link div{
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 11px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="left-section">
+            <img src="./hamburger-menu.svg" alt="menu" class="hamburger-menu">
+            <img src="./youtube-logo.svg" alt="yuotube" class="youtube-logo">
+            </div>
+            <div class="Middle-section">
+                <input type="text" class="search-bar" placeholder="Search">
+                <button class="search-logo">
+                <img src="./search.svg" class="search-icon"alt="search">
+                <div class="tooltip">Search</div>
+                </button>
+                <button class="voice-logo">
+                <img src="./voice-search-icon.svg" alt="voice">
+                <div class="voice-tooltip">Voice</div>
+            </button>
+            </div>
+            <div class="right-section">
+                    <img src="./upload.svg" alt="upload" class="upload-logo">
+                <img src="./youtube-apps.svg" alt="youtube-apps" class="youtube-app">
+                <div class="notification-info-container">
+                    <img src="./notifications.svg" alt="notifications" class="notification-logo">
+                    <div class="notification-count">2</div>
+                </div>
+                <img src="./channels4_profile.jpg" alt="profile" class="channel-logo">
+            </div>
+            
+            
+        </div>
+        <div class="side-bar">
+            <div class="side-link">
+                <img src="./home.svg" alt="home" class="home-logo">
+                <div>Home</div>
+            </div>
+            <div class="side-link">
+                <img src="./explore.svg" alt="explore" class="explore-logo">
+                <div>Explore</div>
+            </div>
+            <div class="side-link">
+            <img src="./subscriptions.svg" alt="subscription" class="subscription-logo">
+            <div>Subscription</div>
+        </div>
+            <div class="side-link">
+                <img src="./originals.svg" alt="original" class="original-logo">
+                <div>Original</div>
+            </div>
+            <div class="side-link">
+                <img src="./youtube-music.svg" alt="music" class="youtube-music">
+                <div>Music</div>
+            </div>
+            <div class="side-link">
+                <img src="./library.svg" alt="library" class="library-logo">
+                <div>Library</div>
+            </div>
+        </div>
+        <div class="video-grid">
+            <div class="video-preview">
+                    <img src="./images (1).jpeg" alt="Messi Playing against Liverpool" class="thumbnail">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Messi Vs Liverpool in 2019</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./images (4).jpeg" alt="Messi Playing against Liverpool" class="thumbnail4">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Messi Vs France in 2022</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./images (2).jpeg" alt="Messi Playing against Liverpool" class="thumbnail2">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Messi Vs Real Madrid in 2017</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./images (5).jpeg" alt="Messi Playing against Liverpool" class="thumbnail5">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Neymar Vs Bayern in 2021</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./hq720 (1).webp" alt="Messi Playing against Liverpool" class="thumbnail2">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Messi Vs Real Madrid in 2017</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./hq720 (10).webp" alt="Messi Playing against Liverpool" class="thumbnail5">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Neymar Vs Bayern in 2021</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="video-grid">
+            <div class="video-preview">
+                <img src="./hq720 (11).webp" alt="Messi Playing against Liverpool" class="thumbnail">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Messi Vs Liverpool in 2019</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./hq720 (2).webp" alt="Messi Playing against Liverpool" class="thumbnail4">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Messi Vs France in 2022</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./hq720 (3).webp" alt="Messi Playing against Liverpool" class="thumbnail2">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Messi Vs Real Madrid in 2017</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./hq720 (4).webp" alt="Messi Playing against Liverpool" class="thumbnail5">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Neymar Vs Bayern in 2021</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./hq720 (5).webp" alt="Messi Playing against Liverpool" class="thumbnail2">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Messi Vs Real Madrid in 2017</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./hq720 (6).webp" alt="Messi Playing against Liverpool" class="thumbnail5">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Neymar Vs Bayern in 2021</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="video-grid">
+            <div class="video-preview">
+                <img src="./hq720 (7).webp" alt="Messi Playing against Liverpool" class="thumbnail">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Messi Vs Liverpool in 2019</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                0
+            </div>
+            <div class="video-preview">
+                <img src="./hq720 (8).webp" alt="Messi Playing against Liverpool" class="thumbnail4">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Messi Vs France in 2022</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./hq720 (9).webp" alt="Messi Playing against Liverpool" class="thumbnail2">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Messi Vs Real Madrid in 2017</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./hq720.webp" alt="Messi Playing against Liverpool" class="thumbnail5">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./IMG_20240513_212628.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Neymar Vs Bayern in 2021</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+            <div class="video-preview">
+                <img src="./hqdefault.webp" alt="Messi Playing against Liverpool" class="thumbnail2">
+                <div class="info-grid">
+                    <div class="channel-picture">
+                        <img src="./channels4_profile.jpg" alt="Messi" class="channel-pics">
+                        </div><div class="video-info">
+                            <p class="video-title">Messi Vs Real Madrid in 2017</p>
+                            <p class="author">Lionel Messi</p>
+                            <p class="video-stats">30M views</p>
+                        </div>
+                </div>
+                
+            </div>
+        </div>
+            
+    </body>
+    </html>
